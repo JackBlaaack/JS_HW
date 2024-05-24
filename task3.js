@@ -2,12 +2,11 @@
 
 // n + nn + nnn, где n не перемножаются, а конкатенируются
 
-function getConcateNumber(n) {
-    let str = ''
-    for (let i = 1; i <=n; i++) {
-         str += n * i
-    }
-    return str
-}
+let n = 9;
+let result = n + +(n + '' + n) + +(n +'' + n + n )
 
-console.log(getConcateNumber(5))
+if(Number.isInteger(n) && n >= 1 && n <= 9) {
+console.log(`${n} + ${n + '' + n} + ${n +'' + n + n} = ${result}`)
+} else {
+    console.log("Invalid value")
+}
