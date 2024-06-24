@@ -6,7 +6,7 @@
 const arr = [[['(']], ')', '(', ')', ')',['(', ['('], [')']]].flat(Infinity);
 
 
-function pairOfBrackets(arr) {
+function isEqualBrackets(arr) {
 const result = arr.reduce((balance, el) => {
 if (el === '(') {
    balance++;
@@ -15,8 +15,8 @@ if (el === '(') {
 } 
 return balance;
 }, 0);
-return result;
+return result === 0;
     }
 
-console.log(pairOfBrackets(arr));
+console.log(isEqualBrackets(arr));
 
