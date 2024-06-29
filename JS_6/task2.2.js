@@ -6,18 +6,19 @@
 
 import { enterprises } from "./task2.1.js";
 
-
-const getEnterpriseName = ((search) => {
+const getEnterpriseName = (search) => {
+  try {
     for (const enterprise of enterprises) {
-        for (const department of enterprise.departments) {
-            if (department.id === search || department.name === search) {
-                return enterprise.name;
-            }
+      for (const department of enterprise.departments) {
+        if (department.id === search || department.name === search) {
+          return enterprise.name;
         }
+      }
     }
-    return `Предприятие не найдено`
-
-});
+  } catch (error) {
+    throw new Error(error);
+  }
+};
 
 console.log(getEnterpriseName("Отдел тестирования"));
-console.log(getEnterpriseName(4));
+console.log(getEnterpriseName(11));

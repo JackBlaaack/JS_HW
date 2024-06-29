@@ -7,24 +7,25 @@ import { enterprises } from "./task2.1.js";
 
 const moveEmployees = ((fromDepId, toDepId) => {
     try {
-        let fromDep, toDep;
-        enterprises.forEach(enteprise => {
-            enteprise.departments.forEach(dep => {
-                if (dep.id === fromDepId) {
-                    fromDep = dep;
-                if (dep.id === toDepId) {
-                    toDep = dep;
+        let fromDep,toDep;
+        
+        enterprises.forEach(enterprise => {
+            const foundFromDep = enterprise.departments.find(dep => dep.id === fromDepId);
+            const foundToDep = enterprise.departments.find(dep => dep.id === toDepId);
+                if (foundFromDep) {
+                    fromDep = foundFromDep;
+                if (foundToDep) {
+                    toDep = foundToDep;
                 }
                 }
             })
-        })
         if (fromDep && toDep) {
             toDep.employees_count += fromDep.employees_count;
             fromDep.employees_count = 0;
-            console.log(`сотрудники перенесены из ${fromDep} в ${toDep}`)
+            console.log(`сотрудники перенесены из ${fromDep.name} в ${toDep.name}`)
             return;
         } else {
-            throw new Error(`не нашли отделов`)
+            throw new Error(`не нашли отделы`)
     }
    
     }catch (error) {
