@@ -3,11 +3,11 @@
 
 class Zoo {
     constructor(address, title, ticketPrice, workers, animals) {
-this._address = address;
-this._title = title;
-this._ticketPrice = ticketPrice;
+this.address = address;
+this.title = title;
+this.ticketPrice = ticketPrice;
 this.workers = workers;
-this._animals = animals;
+this.animals = animals;
     }
     get address() {
         return this._address;

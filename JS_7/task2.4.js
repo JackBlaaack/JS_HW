@@ -7,12 +7,12 @@
 //       animals: [],
 
  class Zoo {
-    constructor(address, title, ticketPrice, workers, animals) {
+    constructor(address, title, ticketPrice, workers = [], animals = []) {
 this.address = address;
 this.title = title;
 this.ticketPrice = ticketPrice;
-this.workers = workers;
-this.animals = animals;
+this.workers.push(...workers);
+this.animals.push(...animals);
     }
 }
 
