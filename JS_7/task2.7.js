@@ -29,7 +29,6 @@ class Zoo {
         }
         if (this.animals?.length === 0) this.animals = [];
         this.animals.push(animal);
-        return `Success! Add ${JSON.stringify(animal)}`
       } catch (error) {
         console.log(error);
       }

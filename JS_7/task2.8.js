@@ -35,7 +35,6 @@ class Zoo {
         throw new Error(`There will be no snakes, mister Potter!`);
       }
       this.animals.push(animal);
-      return `Success! Add ${JSON.stringify(animal)}`;
     } catch (error) {
       console.log(error.message);
     }
@@ -48,7 +47,6 @@ class Zoo {
         throw new Error("Worker not found");
       } else {
         this.workers.splice(index, 1);
-        return `Worker with id ${id} removed successfully`;
       }
     } catch (error) {
       console.log(error.message);
@@ -62,7 +60,6 @@ class Zoo {
         throw new Error("Animal not found");
       } else {
         this.animals.splice(index, 1);
-        return `Animal with id ${id} removed successfully`;
       }
     } catch (error) {
       console.log(error.message);
