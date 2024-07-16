@@ -35,7 +35,7 @@ interface IAddress {
     flat: number;
 }
 
-const employee: ItEmployee = {
+const itEmployee: ItEmployee = {
     name: "Jack",
     surname: "Larson",
     salary: 5000,

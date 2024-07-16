@@ -10,6 +10,19 @@ interface ICountResult {
     boolean: number;
 }
 
+const countTypes = (obj: Record<string, ValueType>, result: ICountResult): void => {
+    for (const key in obj) {
+        const value = obj[key];
+        if (typeof value === 'string') {
+            result.string++;
+        } else if (typeof value === 'number') {
+            result.number++;
+        } else if (typeof value === 'boolean') {
+            result.boolean++;
+        }
+    }
+};
+
 function countValueTypes(input: Record<string, ValueType> | Record<string, ValueType>[]): ICountResult {
     const result: ICountResult = {
         string: 0,
@@ -17,23 +30,12 @@ function countValueTypes(input: Record<string, ValueType> | Record<string, Value
         boolean: 0
     };
 
-    const countTypes = (obj: Record<string, ValueType>): void => {
-        for (const key in obj) {
-            const value = obj[key];
-            if (typeof value === 'string') {
-                result.string++;
-            } else if (typeof value === 'number') {
-                result.number++;
-            } else if (typeof value === 'boolean') {
-                result.boolean++;
-            }
-        }
-    };
+  
 
     if (Array.isArray(input)) {
-        input.forEach(countTypes);
+        input.forEach(item => countTypes(item, result));
     } else {
-        countTypes(input);
+        countTypes(input, result);
     }
 
     return result;
