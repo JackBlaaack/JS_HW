@@ -4,6 +4,17 @@
 //   Если на входе itEmployee - выводите в консоль все поля айтишника (а не только те, что в employee)
 //   Функция должна принимать union type между IEmployee и ItEmployee, и через тайпгвард определять что за объект и как работать с ним 
 
+
+interface ItEmployee {
+    name: string;
+    surname: string;
+    readonly salary: number;
+    grade: Grade;
+    address?: IAddress;
+    projectNames: string[];
+}
+
+type Grade = "junior" | "middle" | "senior" | "lead";
 interface IEmployee {
     name: string;
     surname: string;
@@ -12,29 +23,36 @@ interface IEmployee {
     projectNames: string[];
 }
  
+interface IAddress {
+    country: string;
+    street: string;
+    house: number;
+    flat: number;
+}
+
 function isItEmployee(obj: object): obj is ItEmployee {
-    return "ItEmployee" in obj;
+    return "grade" in obj;
 }
 
 function getEmployeeInfo(employeeOrNot: IEmployee | ItEmployee): void {
     if (isItEmployee(employeeOrNot)) {
-        console.log(` ItEmployee: 
+        const itEmployee = employeeOrNot as ItEmployee;
+        console.log(`ItEmployee: 
             Name: ${itEmployee.name}
             Surname: ${itEmployee.surname}
             Salary: ${itEmployee.salary}
             Grade: ${itEmployee.grade}
             ProjectNames: ${itEmployee.projectNames}
-            `);
+        `);
     } else {
-console.log(`Employee: 
-     Name: ${itEmployee.name}
+        const employee = employeeOrNot as IEmployee;
+        console.log(`Employee: 
+            Name: ${employee.name}
             Surname: ${employee.surname}
             Salary: ${employee.salary}
             ProjectNames: ${employee.projectNames}
-    `)
+        `);
     }
-   
-
 }
 
 const employee: IEmployee = {
@@ -42,7 +60,15 @@ const employee: IEmployee = {
     surname: "Qashen",
     salary: 5000,
     projectNames: ["Project1", "Project2"],
-}
+};
+
+const itEmployee: ItEmployee = {
+    name: "Alice",
+    surname: "Smith",
+    salary: 6000,
+    projectNames: ["Project3", "Project4"],
+    grade: "senior",
+};
 
 getEmployeeInfo(employee);
 getEmployeeInfo(itEmployee);
