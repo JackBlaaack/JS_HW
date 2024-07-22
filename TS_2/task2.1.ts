@@ -18,6 +18,6 @@ const callback = (num: number, index: number): number => {
     return num * index;
 }
 
-const result2 = map(inputArr, callback);
+const res = map(inputArr, callback);
 
-console.log(result2)
+console.log(res)
