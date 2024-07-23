@@ -1,12 +1,20 @@
 {
   "name": "js_hw",
   "version": "1.0.0",
+  "type":"module",
   "description": "Task1",
-  "main": "task2.3.js",
-  "type": "module",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JackBlaaack/JS_HW.git"
+  },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JackBlaaack/JS_HW/issues"
+  },
+  "homepage": "https://github.com/JackBlaaack/JS_HW#readme"
 }
