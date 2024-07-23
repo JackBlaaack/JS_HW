@@ -30,13 +30,13 @@ interface IAddress {
     flat: number;
 }
 
-function isItEmployee(obj: object): obj is ItEmployee {
+function isItEmployee(obj: IEmployee | ItEmployee): obj is ItEmployee {
     return "grade" in obj;
 }
 
 function getEmployeeInfo(employeeOrNot: IEmployee | ItEmployee): void {
     if (isItEmployee(employeeOrNot)) {
-        const itEmployee = employeeOrNot as ItEmployee;
+        const itEmployee = employeeOrNot;
         console.log(`ItEmployee: 
             Name: ${itEmployee.name}
             Surname: ${itEmployee.surname}
@@ -45,7 +45,7 @@ function getEmployeeInfo(employeeOrNot: IEmployee | ItEmployee): void {
             ProjectNames: ${itEmployee.projectNames}
         `);
     } else {
-        const employee = employeeOrNot as IEmployee;
+        const employee = employeeOrNot;
         console.log(`Employee: 
             Name: ${employee.name}
             Surname: ${employee.surname}
